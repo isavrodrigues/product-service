@@ -10,11 +10,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 @Entity
 @Table(name = "product")
-@Getter @Setter @Accessors(chain = true, fluent = true)
+@Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class ProductModel {
 
