@@ -20,12 +20,11 @@ public class ProductService {
 
     public Product create(ProductIn in) {
         var model = new ProductModel();
-        model.setId(UUID.randomUUID().toString());
         model.setName(in.name());
         model.setPrice(in.price());
         model.setUnit(in.unit());
-        repository.save(model);
-        return ProductParser.toProduct(model);
+        var saved = repository.save(model);
+        return ProductParser.toProduct(saved);
     }
 
     public List<Product> findAll() {

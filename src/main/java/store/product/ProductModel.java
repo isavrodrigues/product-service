@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "product")
+@Table(schema = "product", name = "product")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class ProductModel {
@@ -25,7 +25,7 @@ public class ProductModel {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "DECIMAL(10,2)")
     private Double price;
 
     @Column(name = "unit")
