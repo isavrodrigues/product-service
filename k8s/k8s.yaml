@@ -19,23 +19,18 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  name: postgres-configmap
-                  key: POSTGRES_DB
+            - name: DATABASE_URL
+              value: "jdbc:postgresql://store-postgres.cfeuku40mgyh.us-east-2.rds.amazonaws.com:5432/productdb"
             - name: DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secrets
+                  name: rds-secrets
                   key: POSTGRES_USER
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secrets
+                  name: rds-secrets
                   key: POSTGRES_PASSWORD
-            - name: DATABASE_URL
-              value: "jdbc:postgresql://postgres:5432/$(POSTGRES_DB)"
           resources:
             requests:
               memory: "200Mi"
